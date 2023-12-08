@@ -1,6 +1,6 @@
 public class Number {
-    NumberType number_type_;
-    int number_;
+    private NumberType number_type_;
+    private int number_;
 
     Number(int number, NumberType number_type){
         number_ = number;
@@ -46,39 +46,19 @@ public class Number {
     }
 
     private void fromRoman(String number) throws IllegalArgumentException {
-        switch (number){
-            case "I":
-                number_ = 1;
-                break;
-            case "II":
-                number_ = 2;
-                break;
-            case "III":
-                number_ = 3;
-                break;
-            case "IV":
-                number_ = 4;
-                break;
-            case "V":
-                number_ = 5;
-                break;
-            case "VI":
-                number_ = 6;
-                break;
-            case "VII":
-                number_ = 7;
-                break;
-            case "VIII":
-                number_ = 8;
-                break;
-            case "IX":
-                number_ = 9;
-                break;
-            case "X":
-                number_ = 10;
-                break;
-            default: throw new IllegalArgumentException();
-        }
+        number_ = switch (number){
+            case "I" -> 1;
+            case "II" -> 2;
+            case "III" -> 3;
+            case "IV" -> 4;
+            case "V" -> 5;
+            case "VI" -> 6;
+            case "VII" -> 7;
+            case "VIII" -> 8;
+            case "IX" -> 9;
+            case "X" -> 10;
+            default -> throw new IllegalArgumentException();
+        };
     }
 
     private String toRoman(){
